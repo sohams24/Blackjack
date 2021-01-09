@@ -36,10 +36,10 @@ Chips.py:
 This file contains the "Chips" class. This class keeps track of a player's starting chips, bets, and ongoing winnings.
 
 Helper_functions.py:
-This file contains all the functions that carry out the different tasks such as taking bets, asking the player whether to "Hit" or "Stand" and carrying out those actions, functions to display the dealer cards, and fucntions to handle the end of game scenarios.
+This file contains all the functions that carry out the different tasks such as taking bets, asking the player whether to "Hit" or "Stand" and carrying out those actions, functions to display the dealer cards, and functions to handle the end of game scenarios.
 
 BlackJack.py:
-This file contains the main logic of the game that makes use of the global variable and instances of all the class mentioned above, and calls the appropriate helper_functions wherever required.
+This file contains the main logic of the game that makes use of the global variable and instances of all the classes mentioned above, and calls the appropriate helper_functions wherever required.
 
 
 
