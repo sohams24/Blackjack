@@ -1,4 +1,4 @@
-import Global
+import constants
 from os import system, name
 
 def take_bet(chips):
@@ -9,7 +9,7 @@ def take_bet(chips):
         except ValueError:
             print("Invalid input. Please inter a number ")
         else:
-            clear_output()
+            clear_console()
             if bet_value>chips.total:
                 print("Insufficient chips. Please bet a lower value")
             elif bet_value<10:
@@ -27,7 +27,7 @@ def hit(deck,hand):
 
 
 def hit_or_stand(deck,hand):
-    global playing# to control an upcoming while loop
+    constants.playing  # to control an upcoming while loop
 
     while True:
         choice = input("\nDo you wish to hit or stand? (H/S) ")
@@ -35,20 +35,10 @@ def hit_or_stand(deck,hand):
             hit(deck,hand)
             break
         elif choice in ['S', 's']:
-            Global.playing = False
+            constants.playing = False
             break
         else:
             print("Invalid input. Please enter H or S")
-
-
-# test_deck = Deck()
-# test_hand = Hand()
-# hit_or_stand(test_deck, test_hand)
-
-# print(test_deck)
-
-# print(test_hand)
-
 
 def show_some(player,dealer):
 
@@ -79,43 +69,32 @@ def show_all(player,dealer):
 
 def player_busts(chips):
 
-#     clear_output()
     print("\nYou busted!!!\n")
     chips.lose_bet()
 
 def player_wins(chips):
 
-#     clear_output()
     print("\nYou won!!!\n")
     chips.win_bet()
 
 def dealer_busts(chips):
 
-#     clear_output()
     print("\nDealer busted!!!\n")
     chips.win_bet()
 
 def dealer_wins(chips):
 
-#     clear_output()
     print("\nYou lost!!!\n")
     chips.lose_bet()
-
-def push(chips):
-
-#     clear_output()
-    print("\nTie!!!\n")
-
 
 def black_jack(chips):
     print("Blackjack!!!")
     chips.black_jack()
 
-def clear():
+def clear_console():
     # for windows
     if name == 'nt':
         _ = system('cls')
     # for mac and linux(here, os.name is 'posix')
     else:
         _ = system('clear')
-

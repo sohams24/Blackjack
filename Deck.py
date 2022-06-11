@@ -1,13 +1,13 @@
 import random
-import Global
+import constants
 from Card import Card
 
 class Deck:
 
     def __init__(self):
         self.deck = []  # start with an empty list
-        for suit in Global.suits:
-            for rank in Global.ranks:
+        for suit in constants.suits:
+            for rank in constants.ranks:
                 self.deck.append(Card(suit,rank))
 
     def __str__(self):
@@ -20,12 +20,3 @@ class Deck:
 
     def deal(self):
         return self.deck.pop(0)
-
-
-
-# test_deck = Deck()
-# print(test_deck)
-
-
-# test_deck.shuffle()
-# print(test_deck)

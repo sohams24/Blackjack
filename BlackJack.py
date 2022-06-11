@@ -2,13 +2,13 @@ from Card import Card
 from Deck import Deck
 from Hand import Hand
 from Chips import Chips
-from Helper_functions import take_bet, hit, hit_or_stand, show_some, show_all, player_busts, player_wins, dealer_busts, dealer_wins, push, black_jack, clear
+from Helper_functions import take_bet, hit, hit_or_stand, show_some, show_all, player_busts, player_wins, dealer_busts, dealer_wins, black_jack, clear_console
 
-import Global
+import constants
 
 game_on = True
 while game_on:
-    clear_output()
+    clear_console()
     # Print an opening statement
     print("Welcome to blackjack!")
     new_deck = Deck()
@@ -45,20 +45,20 @@ while game_on:
 
         if player.value==21:
             black_jack(chips)
-            Global.playing = False
+            constants.playing = False
             blackjack = True
 
 
         # Show cards (but keep one dealer card hidden)
         show_some(player,dealer)
 
-        Global.playing = True
+        constants.playing = True
 
-        while Global.playing and not blackjack:  # recall this variable from our hit_or_stand function
+        while constants.playing and not blackjack:  # recall this variable from our hit_or_stand function
             # Prompt for Player to Hit or Stand
             hit_or_stand(new_deck,player)
 
-            clear()
+            clear_console()
 
             # Show cards (but keep one dealer card hidden)
             show_some(player,dealer)
@@ -66,13 +66,13 @@ while game_on:
             # If player's hand meets 21, run black_jack() and break out of loop
             if player.value==21:
                 black_jack(chips)
-                Global.playing = False
+                constants.playing = False
                 blackjack = True
 
             # If player's hand exceeds 21, run player_busts() and break out of loop
             elif player.value>21:
                 player_busts(chips)
-                Global.playing = False
+                constants.playing = False
                 busted = True
 
             else:
@@ -97,7 +97,7 @@ while game_on:
                 dealer_wins(chips)
 
             elif dealer.value == player.value:
-                push(chips)
+                print("\nTie!!!\n")
 
             else:
                 pass

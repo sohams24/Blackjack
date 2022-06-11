@@ -1,4 +1,4 @@
-import Global
+import constants
 
 class Hand:
     def __init__(self):
@@ -11,7 +11,7 @@ class Hand:
             self.aces += 1
         self.cards.append(new_card)
         new_card_rank = new_card.rank
-        new_card_value = Global.values[new_card_rank]
+        new_card_value = constants.values[new_card_rank]
         self.value += new_card_value
 
 
